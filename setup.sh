@@ -15,6 +15,7 @@ echo "1. Broadcom"
 echo "2. Intel"
 echo "3. Realtek"
 echo "4. Antheros"
+echo "5. None"
 echo " "
 lspci | grep -i network
 echo " "
@@ -33,6 +34,10 @@ case $num in
 		;;
 	4)
 		driver="anth9k"
+		;;
+	5)
+		echo "No driver"
+		driver=0
 		;;
 	*)
 		echo "invalid"
@@ -83,7 +88,9 @@ sleep 1
 cat /mnt/startup > /home/$user/.fluxbox/startup
 echo "setting up wireless module load"
 sleep 1
-echo $driver | tee -a /etc/modules
+if [[ [$driver != 0] ]]; then
+	echo $driver | tee -a /etc/modules
+fi
 echo "rebooting in 5"
 sleep 1
 echo "4"
