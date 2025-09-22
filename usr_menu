@@ -5,13 +5,13 @@
 [exec] (Web Browser) {librewolf}
 [exec] (PuTTy) {putty}
 [submenu] (Quick Commands >)
-[exec] (Wireguard Up) {sakura -e "wg-quick up wg0"}
-[exec] (Wireguard Down) {sakura -e "wg-quick down wg0"}
+[exec] (Wireguard Up) {sakura -e "sudo wg-quick up wg0"}
+[exec] (Wireguard Down) {sakura -e "sudo wg-quick down wg0"}
 [exec] (Edit Menu) {sakura -e "nano ~/.fluxbox/menu"}
 [exec] (Edit Startup) {sakura -e "nano ~/.fluxbox/startup"}
 [exec] (Edit Fluxrun Apps) {sakura -e "nano ~/.fluxbox/apps"}
-[exec] (Update Applist) {sakura -e "apt update"}
-[exec] (Update Apps) {sakura -e "apt upgrade"}
+[exec] (Update Applist) {sakura -e "sudo apt update"}
+[exec] (Update Apps) {sakura -e "sudo apt upgrade"}
 [exec] (Load Wireless Driver) {sakura -e "sudo su && modprobe -r brcmsmac && modprobe brcmsmac && echo 1 > /sys/bus/pci/rescan"}
 
 
@@ -40,7 +40,9 @@
 [end]
 [end]
 [seperator]
-
 [include] (/etc/X11/fluxbox/fluxbox-menu)
+[seperator]
+[exec] (Reboot) {sudo reboot}
+[exec] (Shutdown) {sudo poweroff}
 [end]
 
