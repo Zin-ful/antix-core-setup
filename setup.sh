@@ -86,7 +86,10 @@ cat /mnt/sys_menu > /etc/X11/fluxbox/fluxbox-menu
 echo "setting up startup procs"
 sleep 1
 cat /mnt/startup > /home/$user/.fluxbox/startup
-echo "setting up wireless module load"
+echo "setting up xinit"
+sleep 1
+cat /mnt/.xinitrc > /home/$user/.xinitrc
+echo "loading wireless module"
 sleep 1
 if [[ [$driver != 0] ]]; then
 	echo $driver | tee -a /etc/modules
