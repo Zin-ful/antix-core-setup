@@ -13,9 +13,9 @@ sleep 1
 
 echo "1. Broadcom"
 echo "2. Intel"
-echo "3. Realtek"
-echo "4. Antheros"
-echo "5. None"
+echo "3. Realtek (might wanna skip this guy)"
+echo "4. Atheros"
+echo "5. Skip"
 echo " "
 lspci | grep -i network
 echo " "
@@ -33,7 +33,7 @@ case $num in
 		driver="r8169"
 		;;
 	4)
-		driver="anth9k"
+		driver="ath9k"
 		;;
 	5)
 		echo "No driver"
@@ -64,11 +64,17 @@ sleep 1
 
 apt update
 
+apt install extrepo
+
+extrepo enable librewolf
+
+apt update
+
 apt install xserver-xorg-input-libinput xserver-xorg-input-evdev \
 xserver-xorg-video-ati xserver-xorg-video-fbdev \
 xserver-xorg-video-vesa xterm cmst cbatticon acpi light-locker \
 sakura fluxbox-themes-antix tint2 connman pcmanfm clipit \
-python3 ssh wireguard putty gcc make wireless-regdb -y 
+python3 ssh wireguard putty gcc make wireless-regdb librewolf -y 
 
 read -p "install steam? (y/n) >>> " confirm
 
@@ -91,7 +97,7 @@ sleep 1
 cat /mnt/.xinitrc > /home/$user/.xinitrc
 echo "loading wireless module"
 sleep 1
-if [[ [$driver != 0] ]]; then
+if [[ $driver != 0 ]]; then
 	echo $driver | tee -a /etc/modules
 fi
 echo "rebooting in 5"
