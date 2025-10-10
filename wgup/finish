@@ -1,0 +1,33 @@
+#!/bin/sh
+# /etc/runit/runsvdir/default/wg0/run
+
+# --- Environment ---
+# Set a full PATH so wg-quick can find ip, wg, iptables, etc.
+echo "RUN: attempting to bring wireguard down" > /dev/kmsg
+echo "RUN: attempting to bring wireguard down"
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+export PATH
+
+# Redirect stderr to stdout so runit logs both
+exec 2>&1
+
+# --- Logging (optional) ---
+# If you want logs, ensure /var/log/wg0 exists
+# mkdir -p /var/log/wg0
+# exec svlogd -tt /var/log/wg0 &
+
+# --- Start WireGuard ---
+# Use full path to config to avoid "file not found"
+WG_CONF="/etc/wireguard/wg0.conf"
+
+# Bring up the interface
+if [ -f "$WG_CONF" ]; then
+    echo "RUN: Bringing down wg0..." > /dev/kmsg
+    echo "RUN: Bringing down wg0..."
+    wg-quick down "$WG_CONF"
+else
+    echo "RUN: WireGuard config not found at $WG_CONF" > /dev/kmsg
+    echo "RUN: WireGuard config not found at $WG_CONF"
+fi
+
+exit 1

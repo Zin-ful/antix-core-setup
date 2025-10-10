@@ -1,0 +1,20 @@
+#!/bin/sh
+
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+export PATH
+
+echo "RUN: boosting cpu with args: $CPUARGS" > /dev/kmsg
+echo "RUN: boosting cpu with args: $CPUARGS"
+
+# Run cpuboost
+sleep 5
+if /usr/local/bin/cpuboost.sh; then
+    echo "RUN: cpu boosted" > /dev/kmsg
+    echo "RUN: cpu boosted"
+else
+    echo "RUN: failed to boost cpu" > /dev/kmsg
+    echo "RUN: failed to boost cpu"
+    exit 1
+fi
+
+exec tail -f /dev/null
