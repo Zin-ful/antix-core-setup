@@ -42,7 +42,7 @@ wireless-regdb build-essential git cmake libpci-dev lmsensors micropython-mpremo
 nmap hexdump ripgrep esptool picocom minicom hexdiff lzop chipsec acpica-tools me_cleaner\
 ufei-firmware-parser fdisk cfdisk parted testdisk radare2 objdump ghidra ndisasm\
 dmidecode pciutils usbutils spi-tools i2c-tools coreboot-utils nvramtool efivar efibootmgr\
-pipx tcpdump ethtool open-jdk-25 -y 
+pipx tcpdump ethtool openjdk-17-jre openjdk-17-jdk -y 
 
 echo "downloading micropy for rp2040"
 
