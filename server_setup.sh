@@ -96,6 +96,10 @@ cp /mnt/private.key /etc/wireguard
 
 echo "keys and conf copied"
 
+echo "enabling IP forwading"
+
+echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
+
 echo "rebooting in 5"
 sleep 1
 echo "4"
