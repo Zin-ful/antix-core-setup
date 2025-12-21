@@ -1,0 +1,24 @@
+menu "Apps" folder {
+    prog "Terminal" - sakura
+    prog "Web Browser" - librewolf
+    prog "Connection Manager" - cmst
+    prog "Code Lite" - codelite
+    prog "Discord" - discord
+    prog "Edit IceWM Menu" - sakura -m -e "nano ~/.icewm/menu"
+    prog "Restart" - sakura -e "sudo reboot"
+    prog "Power Off" - sakura -e "sudo poweroff"
+
+}
+
+menu "Zin Apps" folder {
+    prog "Update from GitHub" - sakura -m -e ""
+    prog "Connection Manager" - -m -e ""
+    prog "Code Lite" - sakura -m -e ""
+    prog "Discord" - sakura -m -e ""
+    prog "Edit IceWM Menu" - sakura -m -e ""
+
+}
+
+menu "Steam" folder {
+    prog "Launch Steam" - steam
+}
