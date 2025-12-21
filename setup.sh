@@ -25,6 +25,7 @@ fi
 
 echo "Setting up user menu"
 sleep 1
+mkdir /home/$user/.icewm
 cat icemenu > /home/$user/.icewm/menu
 echo "setting up startup procs"
 sleep 1
