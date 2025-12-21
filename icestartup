@@ -1,0 +1,9 @@
+sleep 1
+pipewire &
+sleep 1
+wireplumber &
+sleep 1
+volumeicon &
+sleep 1
+clipit &
+cmst --minimized &
