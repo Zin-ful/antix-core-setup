@@ -14,7 +14,7 @@ extrepo enable librewolf
 apt update
 
 apt install xorg xserver-xorg-core icewm acpi light-locker build-essential git \
-sakura cmst clipit volumeicon-alsa alsa-utils alsa-ucm-conf pipewire pipewire-pulse wireplumber \
+sakura cmst clipit volumeicon-alsa alsa-utils alsa-ucm-conf pipewire pipewire-alsa pipewire-pulse wireplumber \
 python3 ssh wireguard putty gcc make librewolf flatpak codelite -y
 
 read -p "install steam? (y/n) >>> " confirm
